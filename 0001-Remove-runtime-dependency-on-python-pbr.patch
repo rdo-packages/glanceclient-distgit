@@ -1,4 +1,4 @@
-From 46df2e4adf792dbda6e698a111ab671c7d29ab96 Mon Sep 17 00:00:00 2001
+From 1fd343610b0673f3d5d86a08a6e78a68b7068381 Mon Sep 17 00:00:00 2001
 From: Jakub Ruzicka <jruzicka@redhat.com>
 Date: Wed, 14 Aug 2013 16:07:03 +0200
 Subject: [PATCH] Remove runtime dependency on python-pbr.
@@ -8,10 +8,10 @@ Subject: [PATCH] Remove runtime dependency on python-pbr.
  1 file changed, 1 insertion(+), 8 deletions(-)
 
 diff --git a/glanceclient/__init__.py b/glanceclient/__init__.py
-index f59bd0b..2239f0b 100644
+index f967031..ca5ac5f 100644
 --- a/glanceclient/__init__.py
 +++ b/glanceclient/__init__.py
-@@ -23,11 +23,4 @@ except ImportError:
+@@ -21,11 +21,4 @@ except ImportError:
      import warnings
      warnings.warn("Could not import glanceclient.client", ImportWarning)
  

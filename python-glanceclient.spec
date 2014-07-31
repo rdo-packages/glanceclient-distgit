@@ -1,7 +1,7 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.12.0
-Release:          2%{?dist}
+Version:          0.13.1
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 Group:            Development/Languages
@@ -9,9 +9,6 @@ License:          ASL 2.0
 URL:              http://github.com/openstack/python-glanceclient
 Source0:          https://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
-#
-# patches_base=0.12.0
-#
 Patch0001: 0001-Remove-runtime-dependency-on-python-pbr.patch
 
 BuildArch:        noarch
@@ -89,6 +86,9 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Thu Jul 31 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:0.13.1-1
+- Update to upstream 0.13.1
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:0.12.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
