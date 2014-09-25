@@ -1,6 +1,6 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.13.1
+Version:          0.14.1
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -16,11 +16,12 @@ BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
 BuildRequires:    python-d2to1
 BuildRequires:    python-pbr
-BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
 Requires:         python-httplib2
 Requires:         python-keystoneclient
 Requires:         python-prettytable
+Requires:         python-requests
 Requires:         python-setuptools
 Requires:         python-warlock
 Requires:         pyOpenSSL
@@ -59,6 +60,8 @@ rm -rf python_glanceclient.egg-info
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 rm -rf {,test-}requirements.txt
 
+sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
+
 %build
 %{__python} setup.py build
 
@@ -86,6 +89,12 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Thu Sep 25 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:0.14.1-1
+- Update to upstream 0.14.1
+- New Requires: python-requests
+- New BuildRequires: python-oslo-sphinx
+- oslosphinx -> oslo.sphinx fix
+
 * Thu Jul 31 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:0.13.1-1
 - Update to upstream 0.13.1
 
