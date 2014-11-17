@@ -1,6 +1,6 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.14.1
+Version:          0.14.2
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -20,6 +20,7 @@ BuildRequires:    python-oslo-sphinx
 
 Requires:         python-httplib2
 Requires:         python-keystoneclient
+Requires:         python-oslo-utils
 Requires:         python-prettytable
 Requires:         python-requests
 Requires:         python-setuptools
@@ -89,6 +90,10 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Mon Nov 17 2014 Haikel Guemar <hguemar@fedoraproject.org> 1:0.14.2-1
+- Update to upstream 0.14.2
+- New Requires: python-oslo-utils
+
 * Thu Sep 25 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:0.14.1-1
 - Update to upstream 0.14.1
 - New Requires: python-requests
