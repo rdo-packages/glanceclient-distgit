@@ -1,7 +1,7 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.14.2
-Release:          2%{?dist}
+Version:          0.15.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 Group:            Development/Languages
@@ -90,6 +90,9 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Tue Jan 13 2015 Jakub Ruzicka <jruzicka@redhat.com> 1:0.15.0-1
+- Update to upstream 0.15.0
+
 * Tue Nov 25 2014 Haikel Guemar <hguemar@redhat.com> 1:0.14.2-2
 - Pulls the right version of python-requests (RHBZ #1166894)
 
