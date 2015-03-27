@@ -1,31 +1,30 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.15.0
+Version:          0.17.0
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
-Group:            Development/Languages
 License:          ASL 2.0
 URL:              http://github.com/openstack/python-glanceclient
 Source0:          https://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
-
-Patch0001: 0001-Remove-runtime-dependency-on-python-pbr.patch
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
 BuildRequires:    python-d2to1
 BuildRequires:    python-pbr
-BuildRequires:    python-oslo-sphinx
 
 Requires:         python-httplib2
 Requires:         python-keystoneclient
 Requires:         python-oslo-utils
+Requires:         python-netiface
+Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests >= 2.2.0
 Requires:         python-setuptools
 Requires:         python-warlock
 Requires:         pyOpenSSL
+
 
 %description
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -35,9 +34,9 @@ glanceclient module), and a command-line script (glance). Each implements
 
 %package doc
 Summary:          Documentation for OpenStack Nova API Client
-Group:            Documentation
 
 BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
 %description      doc
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -50,24 +49,19 @@ This package contains auto-generated documentation.
 %prep
 %setup -q
 
-%patch0001 -p1
-
-# We provide version like this in order to remove runtime dep on pbr.
-sed -i s/REDHATGLANCECLIENTVERSION/%{version}/ glanceclient/__init__.py
-
 # Remove bundled egg-info
 rm -rf python_glanceclient.egg-info
 # let RPM handle deps
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 rm -rf {,test-}requirements.txt
 
-sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
+
 
 %install
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 sphinx-build -b html doc/source html
@@ -81,8 +75,8 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %doc README.rst
 %doc LICENSE
 %{_bindir}/glance
-%{python_sitelib}/glanceclient
-%{python_sitelib}/*.egg-info
+%{python2_sitelib}/glanceclient
+%{python2_sitelib}/*.egg-info
 %{_mandir}/man1/glance.1.gz
 
 %files doc
@@ -90,6 +84,11 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Fri Mar 27 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:0.17.0-1
+- Update to upstream 0.17.0
+- Use versioned python macro
+- Drop unneeded patches (Requires: python-pbr)
+
 * Tue Jan 13 2015 Jakub Ruzicka <jruzicka@redhat.com> 1:0.15.0-1
 - Update to upstream 0.15.0
 
