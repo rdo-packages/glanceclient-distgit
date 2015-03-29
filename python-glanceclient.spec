@@ -1,7 +1,7 @@
 Name:             python-glanceclient
 Epoch:            1
 Version:          0.17.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          ASL 2.0
@@ -17,7 +17,7 @@ BuildRequires:    python-pbr
 Requires:         python-httplib2
 Requires:         python-keystoneclient
 Requires:         python-oslo-utils
-Requires:         python-netiface
+Requires:         python-netifaces
 Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests >= 2.2.0
@@ -84,6 +84,9 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Sun Mar 29 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1:0.17.0-2
+- Fix typo in Requires
+
 * Fri Mar 27 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:0.17.0-1
 - Update to upstream 0.17.0
 - Use versioned python macro
