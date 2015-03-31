@@ -17,7 +17,6 @@ BuildRequires:    python-pbr
 Requires:         python-httplib2
 Requires:         python-keystoneclient
 Requires:         python-oslo-utils
-Requires:         python-netifaces
 Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests >= 2.2.0
