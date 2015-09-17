@@ -1,7 +1,7 @@
 Name:             python-glanceclient
 Epoch:            1
-Version:          0.17.0
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          ASL 2.0
@@ -13,14 +13,19 @@ BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
 BuildRequires:    python-d2to1
 BuildRequires:    python-pbr
+BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
+Requires:         python-babel >= 1.3
 Requires:         python-httplib2
 Requires:         python-keystoneclient
+Requires:         python-oslo-i18n
 Requires:         python-oslo-utils
 Requires:         python-pbr
 Requires:         python-prettytable
-Requires:         python-requests >= 2.2.0
+Requires:         python-requests
 Requires:         python-setuptools
+Requires:         python-six >= 1.9.0
 Requires:         python-warlock
 Requires:         pyOpenSSL
 
@@ -35,7 +40,6 @@ glanceclient module), and a command-line script (glance). Each implements
 Summary:          Documentation for OpenStack Nova API Client
 
 BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
 
 %description      doc
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -72,7 +76,7 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 %files
 %doc README.rst
-%doc LICENSE
+%license LICENSE
 %{_bindir}/glance
 %{python2_sitelib}/glanceclient
 %{python2_sitelib}/*.egg-info
@@ -83,6 +87,9 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Thu Sep 17 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:1.1.0-1
+- Update to upstream 1.1.0
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:0.17.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
