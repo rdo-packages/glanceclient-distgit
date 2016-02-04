@@ -1,7 +1,7 @@
 Name:             python-glanceclient
 Epoch:            1
 Version:          1.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          ASL 2.0
@@ -87,6 +87,9 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1:1.1.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Thu Sep 17 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:1.1.0-1
 - Update to upstream 1.1.0
 
