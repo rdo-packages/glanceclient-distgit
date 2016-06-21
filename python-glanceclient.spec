@@ -8,7 +8,7 @@ Summary:          Python API and CLI for OpenStack Glance
 
 License:          ASL 2.0
 URL:              http://github.com/openstack/python-glanceclient
-Source0:          https://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
+Source0:          https://pypi.io/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
