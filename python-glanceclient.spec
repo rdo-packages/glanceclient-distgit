@@ -155,3 +155,4 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-glanceclient/commit/?id=99cbde26accbe5d066d9156cb39de9325f7116b9
