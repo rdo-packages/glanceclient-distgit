@@ -1,6 +1,6 @@
 # UUID                                  	Group Name
 #
 1175fa0fb636fc330b3c375309be7972b276e98a	openstack/glanceclient-distgit-ptl
-65359b523369de5ec92da5d6b13188aed2571eea	openstack/glanceclient-distgit-core
 63673ea7f2ae6a5666566b1ea9f14e473d00f5a9	rdo-core
+65359b523369de5ec92da5d6b13188aed2571eea	openstack/glanceclient-distgit-core
 global:Registered-Users                 	Registered Users
