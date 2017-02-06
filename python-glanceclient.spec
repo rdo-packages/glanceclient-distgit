@@ -31,16 +31,17 @@ BuildRequires:    python2-devel
 BuildRequires:    python-setuptools
 BuildRequires:    python-pbr
 
-Requires:         python-babel >= 1.3
-Requires:         python-keystoneclient
-Requires:         python-oslo-i18n
-Requires:         python-oslo-utils
+Requires:         python-babel >= 2.3.4
+Requires:         python-keystoneauth1 >= 2.18.0
+Requires:         python-oslo-i18n >= 2.1.0
+Requires:         python-oslo-utils >= 3.18.0
 Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests
 Requires:         python-setuptools
 Requires:         python-six >= 1.9.0
 Requires:         python-warlock
+Requires:         python-wrapt
 
 %description -n python2-%{sname}
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -56,16 +57,17 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-pbr
 
-Requires:         python3-babel >= 1.3
-Requires:         python3-keystoneclient
-Requires:         python3-oslo-i18n
-Requires:         python3-oslo-utils
+Requires:         python3-babel >= 2.3.4
+Requires:         python3-keystoneauth1 >= 2.18.0
+Requires:         python3-oslo-i18n >= 2.1.0
+Requires:         python3-oslo-utils >= 3.18.0
 Requires:         python3-pbr
 Requires:         python3-prettytable
 Requires:         python3-requests
 Requires:         python3-setuptools
 Requires:         python3-six >= 1.9.0
 Requires:         python3-warlock
+Requires:         python-wrapt
 
 %description -n python3-%{sname}
 This is a client for the OpenStack Glance API. There's a Python API (the
