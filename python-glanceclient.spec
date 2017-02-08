@@ -8,8 +8,8 @@
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          2.6.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          ASL 2.0
@@ -157,3 +157,6 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %license LICENSE
 
 %changelog
+* Wed Feb 08 2017 Alfredo Moralejo <amoralej@redhat.com> 1:2.6.0-1
+- Update to 2.6.0
+
