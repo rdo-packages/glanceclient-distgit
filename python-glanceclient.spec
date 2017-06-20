@@ -67,7 +67,7 @@ Requires:         python3-requests
 Requires:         python3-setuptools
 Requires:         python3-six >= 1.9.0
 Requires:         python3-warlock
-Requires:         python-wrapt
+Requires:         python3-wrapt
 
 %description -n python3-%{sname}
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -80,6 +80,10 @@ Summary:          Documentation for OpenStack Glance API Client
 
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-keystoneauth1
+BuildRequires:    python-oslo-utils
+BuildRequires:    python-prettytable
+BuildRequires:    python-warlock
 
 %description      doc
 This is a client for the OpenStack Glance API. There's a Python API (the
