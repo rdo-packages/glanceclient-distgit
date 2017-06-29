@@ -18,6 +18,8 @@ Source0:          https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.
 
 BuildArch:        noarch
 
+BuildRequires:    git
+
 %description
 This is a client for the OpenStack Glance API. There's a Python API (the
 glanceclient module), and a command-line script (glance). Each implements
@@ -79,7 +81,7 @@ glanceclient module), and a command-line script (glance). Each implements
 Summary:          Documentation for OpenStack Glance API Client
 
 BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstackdocstheme
 BuildRequires:    python-keystoneauth1
 BuildRequires:    python-oslo-utils
 BuildRequires:    python-prettytable
@@ -93,7 +95,7 @@ glanceclient module), and a command-line script (glance). Each implements
 This package contains auto-generated documentation.
 
 %prep
-%setup -q -n %{name}-%{upstream_version}
+%autosetup -n %{name}-%{upstream_version} -S git
 
 rm -rf {,test-}requirements.txt
 
@@ -127,11 +129,10 @@ rm -fr %{buildroot}%{python2_sitelib}/glanceclient/tests
 
 
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source html
-
+%{__python2} setup.py build_sphinx -b html
 # generate man page
-sphinx-build -b man doc/source man
-install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
+%{__python2} setup.py build_sphinx -b man
+install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 %files -n python2-%{sname}
 %doc README.rst
@@ -157,7 +158,7 @@ install -p -D -m 644 man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %endif
 
 %files doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %changelog
