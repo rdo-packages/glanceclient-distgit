@@ -18,6 +18,8 @@ Source0:          https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.
 
 BuildArch:        noarch
 
+BuildRequires:    git
+
 %description
 This is a client for the OpenStack Glance API. There's a Python API (the
 glanceclient module), and a command-line script (glance). Each implements
@@ -79,7 +81,7 @@ glanceclient module), and a command-line script (glance). Each implements
 Summary:          Documentation for OpenStack Glance API Client
 
 BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstackdocstheme
 BuildRequires:    python-keystoneauth1
 BuildRequires:    python-oslo-utils
 BuildRequires:    python-prettytable
@@ -93,7 +95,7 @@ glanceclient module), and a command-line script (glance). Each implements
 This package contains auto-generated documentation.
 
 %prep
-%setup -q -n %{name}-%{upstream_version}
+%autosetup -n %{name}-%{upstream_version} -S git
 
 rm -rf {,test-}requirements.txt
 
