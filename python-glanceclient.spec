@@ -79,7 +79,7 @@ glanceclient module), and a command-line script (glance). Each implements
 Summary:          Documentation for OpenStack Glance API Client
 
 BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstackdocstheme
 BuildRequires:    python-keystoneauth1
 BuildRequires:    python-oslo-utils
 BuildRequires:    python-prettytable
