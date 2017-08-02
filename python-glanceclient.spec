@@ -126,7 +126,6 @@ install -pm 644 tools/glance.bash_completion \
 rm -fr %{buildroot}%{python2_sitelib}/glanceclient/tests
 
 
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 sphinx-build -b html doc/source html
 
 # generate man page
