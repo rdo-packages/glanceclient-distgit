@@ -85,6 +85,7 @@ BuildRequires:    python-oslo-utils
 BuildRequires:    python-prettytable
 BuildRequires:    python-warlock
 BuildRequires:    pyOpenSSL >= 0.14
+BuildRequires:    openstack-macros
 
 %description      doc
 This is a client for the OpenStack Glance API. There's a Python API (the
@@ -96,7 +97,7 @@ This package contains auto-generated documentation.
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
 
-rm -rf {,test-}requirements.txt
+%py_req_cleanup
 
 %build
 %py2_build
