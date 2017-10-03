@@ -6,6 +6,11 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+This is a client for the OpenStack Glance API. There's a Python API (the \
+glanceclient module), and a command-line script (glance). Each implements \
+100% of the OpenStack Glance API.
+
 Name:             python-glanceclient
 Epoch:            1
 Version:          XXX
@@ -21,9 +26,7 @@ BuildArch:        noarch
 BuildRequires:    git
 
 %description
-This is a client for the OpenStack Glance API. There's a Python API (the
-glanceclient module), and a command-line script (glance). Each implements
-100% of the OpenStack Glance API.
+%{common_desc}
 
 %package -n python2-%{sname}
 Summary:          Python API and CLI for OpenStack Glance
@@ -45,9 +48,7 @@ Requires:         python-warlock
 Requires:         python-wrapt
 
 %description -n python2-%{sname}
-This is a client for the OpenStack Glance API. There's a Python API (the
-glanceclient module), and a command-line script (glance). Each implements
-100% of the OpenStack Glance API.
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-%{sname}
@@ -70,9 +71,7 @@ Requires:         python3-warlock
 Requires:         python3-wrapt
 
 %description -n python3-%{sname}
-This is a client for the OpenStack Glance API. There's a Python API (the
-glanceclient module), and a command-line script (glance). Each implements
-100% of the OpenStack Glance API.
+%{common_desc}
 %endif
 
 %package doc
@@ -87,9 +86,7 @@ BuildRequires:    python-warlock
 BuildRequires:    pyOpenSSL >= 0.14
 
 %description      doc
-This is a client for the OpenStack Glance API. There's a Python API (the
-glanceclient module), and a command-line script (glance). Each implements
-100% of the OpenStack Glance API.
+%{common_desc}
 
 This package contains auto-generated documentation.
 
