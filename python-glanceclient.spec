@@ -24,6 +24,7 @@ Source0:          https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.
 BuildArch:        noarch
 
 BuildRequires:    git
+BuildRequires:    openstack-macros
 
 %description
 %{common_desc}
@@ -84,7 +85,6 @@ BuildRequires:    python-oslo-utils
 BuildRequires:    python-prettytable
 BuildRequires:    python-warlock
 BuildRequires:    pyOpenSSL >= 0.14
-BuildRequires:    openstack-macros
 
 %description      doc
 %{common_desc}
