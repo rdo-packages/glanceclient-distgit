@@ -33,19 +33,24 @@ Summary:          Python API and CLI for OpenStack Glance
 %{?python_provide:%python_provide python2-glanceclient}
 
 BuildRequires:    python2-devel
-BuildRequires:    python-setuptools
-BuildRequires:    python-pbr
+BuildRequires:    python2-setuptools
+BuildRequires:    python2-pbr
 
-Requires:         python-keystoneauth1 >= 3.1.0
-Requires:         python-oslo-i18n >= 2.1.0
-Requires:         python-oslo-utils >= 3.20.0
-Requires:         python-pbr
-Requires:         python-prettytable
-Requires:         pyOpenSSL >= 0.14
-Requires:         python-requests
-Requires:         python-six >= 1.9.0
+Requires:         python2-keystoneauth1 >= 3.3.0
+Requires:         python2-oslo-i18n >= 3.15.3
+Requires:         python2-oslo-utils >= 3.33.0
+Requires:         python2-pbr
+Requires:         python2-prettytable
+Requires:         python2-pyOpenSSL >= 16.2.0
+Requires:         python2-requests
+Requires:         python2-six >= 1.10.0
+%if 0%{?fedora} || 0%{?rhel} > 7
+Requires:         python2-warlock
+Requires:         python2-wrapt
+%else
 Requires:         python-warlock
 Requires:         python-wrapt
+%endif
 
 %description -n python2-%{sname}
 %{common_desc}
@@ -59,14 +64,14 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-pbr
 
-Requires:         python3-keystoneauth1 >= 3.1.0
-Requires:         python3-oslo-i18n >= 2.1.0
-Requires:         python3-oslo-utils >= 3.20.0
+Requires:         python3-keystoneauth1 >= 3.3.0
+Requires:         python3-oslo-i18n >= 3.15.3
+Requires:         python3-oslo-utils >= 3.33.0
 Requires:         python3-pbr
 Requires:         python3-prettytable
-Requires:         python3-pyOpenSSL >= 0.14
+Requires:         python3-pyOpenSSL >= 16.2.0
 Requires:         python3-requests
-Requires:         python3-six >= 1.9.0
+Requires:         python3-six >= 1.10.0
 Requires:         python3-warlock
 Requires:         python3-wrapt
 
@@ -77,14 +82,18 @@ Requires:         python3-wrapt
 %package doc
 Summary:          Documentation for OpenStack Glance API Client
 
-BuildRequires:    python-sphinx
-BuildRequires:    python-openstackdocstheme
-BuildRequires:    python-keystoneauth1
-BuildRequires:    python-oslo-utils
-BuildRequires:    python-prettytable
-BuildRequires:    python-warlock
-BuildRequires:    pyOpenSSL >= 0.14
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-openstackdocstheme
+BuildRequires:    python2-keystoneauth1
+BuildRequires:    python2-oslo-utils
+BuildRequires:    python2-prettytable
+BuildRequires:    python2-pyOpenSSL >= 16.2.0
 BuildRequires:    openstack-macros
+%if 0%{?fedora} || 0%{?rhel} > 7
+BuildRequires:    python2-warlock
+%else
+BuildRequires:    python-warlock
+%endif
 
 %description      doc
 %{common_desc}
