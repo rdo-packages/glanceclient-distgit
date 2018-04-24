@@ -88,6 +88,7 @@ BuildRequires:    python2-keystoneauth1
 BuildRequires:    python2-oslo-utils
 BuildRequires:    python2-prettytable
 BuildRequires:    python2-pyOpenSSL >= 16.2.0
+BuildRequires:    python2-sphinxcontrib-apidoc
 BuildRequires:    openstack-macros
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:    python2-warlock
@@ -134,9 +135,9 @@ install -pm 644 tools/glance.bash_completion \
 rm -fr %{buildroot}%{python2_sitelib}/glanceclient/tests
 
 # generate html docs
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -W -b html doc/source doc/build/html
 # generate man page
-%{__python2} setup.py build_sphinx -b man
+sphinx-build -W -b man doc/source doc/build/man
 install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 %files -n python2-%{sname}
@@ -167,3 +168,4 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-glanceclient/commit/?id=a8003eced789d225a47f1cfdbd03e92fd39546f8
