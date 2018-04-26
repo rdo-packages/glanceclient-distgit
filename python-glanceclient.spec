@@ -135,11 +135,11 @@ install -pm 644 tools/glance.bash_completion \
 rm -fr %{buildroot}%{python2_sitelib}/glanceclient/tests
 
 # generate html docs
-sphinx-build -W -b html doc/source doc/build/html
+sphinx-build -b html doc/source doc/build/html
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 # generate man page
-sphinx-build -W -b man doc/source doc/build/man
+sphinx-build -b man doc/source doc/build/man
 install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 
 %files -n python2-%{sname}
