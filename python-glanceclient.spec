@@ -1,6 +1,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global sname glanceclient
+%global with_doc 1
 
 %if 0%{?fedora}
 %global with_python3 1
@@ -24,6 +25,7 @@ Source0:          https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.
 BuildArch:        noarch
 
 BuildRequires:    git
+BuildRequires:    openstack-macros
 
 %description
 %{common_desc}
@@ -79,6 +81,7 @@ Requires:         python3-wrapt
 %{common_desc}
 %endif
 
+%if 0%{?with_doc}
 %package doc
 Summary:          Documentation for OpenStack Glance API Client
 
@@ -89,7 +92,6 @@ BuildRequires:    python2-oslo-utils
 BuildRequires:    python2-prettytable
 BuildRequires:    python2-pyOpenSSL >= 16.2.0
 BuildRequires:    python2-sphinxcontrib-apidoc
-BuildRequires:    openstack-macros
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:    python2-warlock
 %else
@@ -100,6 +102,7 @@ BuildRequires:    python-warlock
 %{common_desc}
 
 This package contains auto-generated documentation.
+%endif
 
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
@@ -134,6 +137,7 @@ install -pm 644 tools/glance.bash_completion \
 # Delete tests
 rm -fr %{buildroot}%{python2_sitelib}/glanceclient/tests
 
+%if 0%{?with_doc}
 # generate html docs
 sphinx-build -b html doc/source doc/build/html
 # remove the sphinx-build leftovers
@@ -141,6 +145,7 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 # generate man page
 sphinx-build -b man doc/source doc/build/man
 install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
+%endif
 
 %files -n python2-%{sname}
 %doc README.rst
@@ -148,7 +153,9 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %{python2_sitelib}/glanceclient
 %{python2_sitelib}/*.egg-info
 %{_sysconfdir}/bash_completion.d
+%if 0%{?with_doc}
 %{_mandir}/man1/glance.1.gz
+%endif
 %{_bindir}/glance
 %{_bindir}/glance-2
 %{_bindir}/glance-%{python2_version}
@@ -165,8 +172,10 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %{_bindir}/glance-%{python3_version}
 %endif
 
+%if 0%{?with_doc}
 %files doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %changelog
