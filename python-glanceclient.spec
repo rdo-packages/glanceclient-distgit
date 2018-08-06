@@ -38,12 +38,12 @@ BuildRequires:    python2-devel
 BuildRequires:    python2-setuptools
 BuildRequires:    python2-pbr
 
-Requires:         python2-keystoneauth1 >= 3.3.0
+Requires:         python2-keystoneauth1 >= 3.6.2
 Requires:         python2-oslo-i18n >= 3.15.3
 Requires:         python2-oslo-utils >= 3.33.0
 Requires:         python2-pbr
 Requires:         python2-prettytable
-Requires:         python2-pyOpenSSL >= 16.2.0
+Requires:         python2-pyOpenSSL >= 17.1.0
 Requires:         python2-requests
 Requires:         python2-six >= 1.10.0
 %if 0%{?fedora} || 0%{?rhel} > 7
@@ -66,12 +66,12 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-pbr
 
-Requires:         python3-keystoneauth1 >= 3.3.0
+Requires:         python3-keystoneauth1 >= 3.6.2
 Requires:         python3-oslo-i18n >= 3.15.3
 Requires:         python3-oslo-utils >= 3.33.0
 Requires:         python3-pbr
 Requires:         python3-prettytable
-Requires:         python3-pyOpenSSL >= 16.2.0
+Requires:         python3-pyOpenSSL >= 17.1.0
 Requires:         python3-requests
 Requires:         python3-six >= 1.10.0
 Requires:         python3-warlock
@@ -90,7 +90,7 @@ BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-keystoneauth1
 BuildRequires:    python2-oslo-utils
 BuildRequires:    python2-prettytable
-BuildRequires:    python2-pyOpenSSL >= 16.2.0
+BuildRequires:    python2-pyOpenSSL >= 17.1.0
 BuildRequires:    python2-sphinxcontrib-apidoc
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:    python2-warlock
