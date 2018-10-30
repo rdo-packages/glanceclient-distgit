@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_3a192689",
+        "filename": "python-glanceclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-10-30T17:06:04Z",
+      "side": 1,
+      "message": "This is probably something for a follow-up review, but I think we should not just remove the unit tests, and instead run them (maybe even package them as a -tests subpackage).",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 54
+      },
+      "revId": "da296bf6890d7aa74f4b45c82255c145b9c798e1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
