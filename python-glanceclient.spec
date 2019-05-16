@@ -8,7 +8,7 @@
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          2.8.0
+Version:          2.8.1
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -160,6 +160,9 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %license LICENSE
 
 %changelog
+* Thu May 16 2019 RDO <dev@lists.rdoproject.org> 1:2.8.1-1
+- Update to 2.8.1
+
 * Fri Aug 11 2017 Alfredo Moralejo <amoralej@redhat.com> 1:2.8.0-1
 - Update to 2.8.0
 
