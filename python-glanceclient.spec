@@ -14,7 +14,7 @@ glanceclient module), and a command-line script (glance). Each implements \
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          2.13.1
+Version:          2.13.2
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -179,6 +179,9 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %endif
 
 %changelog
+* Fri Mar 20 2020 RDO <dev@lists.rdoproject.org> 1:2.13.2-1
+- Update to 2.13.2
+
 * Wed Dec 19 2018 RDO <dev@lists.rdoproject.org> 1:2.13.1-1
 - Update to 2.13.1
 
