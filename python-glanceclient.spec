@@ -42,7 +42,6 @@ Requires:         python3-pbr
 Requires:         python3-prettytable
 Requires:         python3-pyOpenSSL >= 17.1.0
 Requires:         python3-requests
-Requires:         python3-six >= 1.10.0
 Requires:         python3-warlock
 Requires:         python3-wrapt
 
