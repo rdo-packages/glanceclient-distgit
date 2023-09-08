@@ -120,6 +120,9 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %endif
 
 %check
+# CentOS CI environment is setting "http://cache.rdu2.centos.org:8080" which breaks the unit tests.
+unset http_proxy
+unset https_proxy
 %tox -e %{default_toxenv}
 
 %files -n python3-%{sname}
