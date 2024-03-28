@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
@@ -18,7 +18,7 @@ glanceclient module), and a command-line script (glance). Each implements \
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          4.4.0
+Version:          4.4.1
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -144,6 +144,9 @@ unset https_proxy
 %endif
 
 %changelog
+* Thu Mar 28 2024 RDO <dev@lists.rdoproject.org> 1:4.4.1-1
+- Update to 4.4.1
+
 * Mon Sep 04 2023 RDO <dev@lists.rdoproject.org> 1:4.4.0-1
 - Update to 4.4.0
 
