@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
+%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global sname glanceclient
@@ -12,7 +12,7 @@ glanceclient module), and a command-line script (glance). Each implements \
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          4.3.1
+Version:          4.3.2
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
@@ -134,6 +134,9 @@ install -p -D -m 644 doc/build/man/glance.1 %{buildroot}%{_mandir}/man1/glance.1
 %endif
 
 %changelog
+* Mon Aug 05 2024 RDO <dev@lists.rdoproject.org> 1:4.3.2-1
+- Update to 4.3.2
+
 * Thu Mar 28 2024 RDO <dev@lists.rdoproject.org> 1:4.3.1-1
 - Update to 4.3.1
 
