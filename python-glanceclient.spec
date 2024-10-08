@@ -1,6 +1,14 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
+%global sname glanceclient
+%global with_doc 1
+# for bootstrapping and Python bumps: with functional tests there is a
+# dependency loop between os-client-config and glanceclient, turn this
+# off to disable the functional tests and drop os-client-config dep
+%global with_functional_tests 1
+
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order tempest
 # Exclude sphinx from BRs if docs are disabled
@@ -8,8 +16,10 @@
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
 %endif
 
-%global sname glanceclient
-%global with_doc 1
+# Exclude os-client-config from BRs if functional tests are disabled
+%if ! 0%{?with_functional_tests}
+%global excluded_brs %{excluded_brs} os-client-config
+%endif
 
 %global common_desc \
 This is a client for the OpenStack Glance API. There's a Python API (the \
@@ -84,6 +94,11 @@ for pkg in %{excluded_brs}; do
     fi
   done
 done
+
+# Wipe functional tests if they're disabled
+%if ! 0%{?with_functional_tests}
+rm -rf glanceclient/tests/functional
+%endif
 
 # Automatic BR generation
 %generate_buildrequires
