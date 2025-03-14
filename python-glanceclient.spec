@@ -1,6 +1,8 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%{?dlrn: %global tarsources python-glanceclient}
+%{!?dlrn: %global tarsources python_glanceclient}
 
 %global sname glanceclient
 %global with_doc 1
@@ -28,16 +30,16 @@ glanceclient module), and a command-line script (glance). Each implements \
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          4.8.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          Apache-2.0
 URL:              https://launchpad.net/python-glanceclient
-Source0:          https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
+Source0:          https://tarballs.openstack.org/%{name}/%{tarsources}-%{upstream_version}.tar.gz
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
-Source101:        https://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz.asc
+Source101:        https://tarballs.openstack.org/%{name}/%{tarsources}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
 
@@ -78,7 +80,7 @@ This package contains auto-generated documentation.
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%autosetup -n %{name}-%{upstream_version} -S git
+%autosetup -n %{tarsources}-%{upstream_version} -S git
 
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
@@ -159,3 +161,6 @@ unset https_proxy
 %endif
 
 %changelog
+* Fri Mar 14 2025 RDO <dev@lists.rdoproject.org> 1:4.8.0-1
+- Update to 4.8.0
+
