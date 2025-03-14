@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global sname glanceclient
@@ -28,8 +28,8 @@ glanceclient module), and a command-line script (glance). Each implements \
 
 Name:             python-glanceclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          4.8.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Glance
 
 License:          Apache-2.0
@@ -159,3 +159,6 @@ unset https_proxy
 %endif
 
 %changelog
+* Fri Mar 14 2025 RDO <dev@lists.rdoproject.org> 1:4.8.0-1
+- Update to 4.8.0
+
