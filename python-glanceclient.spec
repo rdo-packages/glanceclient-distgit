@@ -161,3 +161,4 @@ unset https_proxy
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/python-glanceclient/commit/0b3a8ab2c79ce60b241e0d105fb10a0288d0d7b6
